@@ -9,5 +9,7 @@
 
 [데이터 자료]
 
+# [Tracking Coronavirus: map](https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/)
+
 ## [중국, 한국 비교](https://www.fmkorea.com/2747110261)
 
