@@ -57,4 +57,4 @@
 5. Total	35	2392	1.463210702
 
 
-[https://davetang.org/muse/2013/05/09/on-curve-fitting/
+* [curve fitting](https://davetang.org/muse/2013/05/09/on-curve-fitting/)
