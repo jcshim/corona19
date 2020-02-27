@@ -7,6 +7,40 @@
 * 2월 23일 8 602
 * 2월 24일 9 833
 
+# 선형예측    
+    x<-c(19:27)
+    y<-c(51,104,204,433,602,833,977, 1261, 1595)
+    plot(x,y)
+    lm(x~y)
+    #fit first degree polynomial equation:
+    fit<-lm(y ~ x)
+    abline(fit,col='red')
+    fit
+    fit$coefficients[[1]]
+    fit$coefficients[[2]]
+    fit$residuals #잔차
+    summary(f)
+    plot(x, y,pch=19, xlim=c(19,30), ylim=c(0,3000), xlab = "date", ylab = "Pacients#", col="blue") #25~30일 예측해 보기
+    abline(fit, col='red')
+    title("Regresson of Day~Patients")
+    axis(2, at=y,labels=y, col.axis="blue", las=2)
+    #second degree
+    fit2 <- lm(y~poly(x,2,raw=TRUE))
+    #third degree
+    fit3 <- lm(y~poly(x,3,raw=TRUE))
+    #fourth degree
+    fit4 <- lm(y~poly(x,4,raw=TRUE))
+    #generate range of 50 numbers starting from 30 and ending at 160
+    xx <- seq(19, 30, length=25)
+    #plot(x,y,pch=19,ylim=c(0,150))
+    lines(xx, predict(fit, data.frame(x=xx)), col="red")
+    lines(xx, predict(fit2, data.frame(x=xx)), col="green")
+    lines(xx, predict(fit3, data.frame(x=xx)), col="blue")
+    lines(xx, predict(fit4, data.frame(x=xx)), col="purple")
+
+![선형예측](./corona19.PNG)
+
+
 [데이터 자료]
 
 # [Tracking Coronavirus: map](https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/)
