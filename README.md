@@ -38,7 +38,7 @@
     lines(xx, predict(fit3, data.frame(x=xx)), col="blue")
     lines(xx, predict(fit4, data.frame(x=xx)), col="purple")
 
-![선형예측](./corona19.PNG)
+![선형예측](./corona19.png)
 
 
 [데이터 자료]
