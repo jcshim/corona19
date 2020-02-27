@@ -12,6 +12,8 @@
 |2월 26일 | 1261| 
 |2월 27일 | 1595| 
 
+![선형예측](./corona19.png)
+
 # 선형예측    
     x<-c(19:27)
     y<-c(51,104,204,433,602,833,977, 1261, 1595)
@@ -42,9 +44,6 @@
     lines(xx, predict(fit2, data.frame(x=xx)), col="green")
     lines(xx, predict(fit3, data.frame(x=xx)), col="blue")
     lines(xx, predict(fit4, data.frame(x=xx)), col="purple")
-
-![선형예측](./corona19.png)
-
 
 [데이터 자료]
 
