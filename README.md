@@ -11,12 +11,13 @@
 |2월 25일 | 977| 
 |2월 26일 | 1261| 
 |2월 27일 | 1766| 
+|2월 28일 | 2337 |
 
 ![선형예측](./corona19.png)
 
 # 선형예측  
-    x<-c(19:27)
-    y<-c(51,104,204,433,602,833,977, 1261, 1766)
+    x<-c(19:28)
+    y<-c(51,104,204,433,602,833,977, 1261, 1766, 2337)
     plot(x,y)
     lm(x~y)
     #fit first degree polynomial equation:
@@ -27,7 +28,7 @@
     fit$coefficients[[2]]
     fit$residuals #잔차
     summary(f)
-    plot(x, y,pch=19, xlim=c(19,35), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue") #25~30일 예측해 보기
+    plot(x, y,pch=19, xlim=c(19,35), ylim=c(0,5000), xlab = "date", ylab = "Pacients#", col="blue") #25~30일 예측해 보기
     abline(fit, col='red')
     title("Regresson of Day~Patients")
     axis(2, at=y,labels=y, col.axis="blue", las=2)
