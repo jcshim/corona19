@@ -10,14 +10,17 @@
 |2월 24일 | 833| 231 |
 |2월 25일 | 977| 144 |
 |2월 26일 | 1261| 284 |
-|2월 27일 | 1766| 505 |
-|2월 28일 | 2337 | 571 |
+|2월 27일 | 1595| 427 |
+|2월 28일 | 2022 | 427 |
+|2월 29일 | 2931 | 909 | 
+|3월 1일 | 3526 | 595 |
+|3월 2일 | 4212 | 686 |
 
 ![선형예측](./corona19.png)
 
 # 선형예측  
-    x<-c(19:28)
-    y<-c(51,104,204,433,602,833,977, 1261, 1766, 2337)
+    x<-c(19:31)
+    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212)
     plot(x,y)
     lm(x~y)
     #fit first degree polynomial equation:
@@ -28,7 +31,7 @@
     fit$coefficients[[2]]
     fit$residuals #잔차
     summary(f)
-    plot(x, y,pch=19, xlim=c(19,35), ylim=c(0,5000), xlab = "date", ylab = "Pacients#", col="blue") #25~30일 예측해 보기
+    plot(x, y,pch=19, xlim=c(19,40), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue") #25~30일 예측해 보기
     abline(fit, col='red')
     title("Regresson of Day~Patients")
     axis(2, at=y,labels=y, col.axis="blue", las=2)
@@ -39,7 +42,7 @@
     #fourth degree
     fit4 <- lm(y~poly(x,4,raw=TRUE))
     #generate range of 50 numbers starting from 30 and ending at 160
-    xx <- seq(19, 35, length=27)
+    xx <- seq(19, 40, length=27)
     #plot(x,y,pch=19,ylim=c(0,150))
     lines(xx, predict(fit, data.frame(x=xx)), col="red")
     lines(xx, predict(fit2, data.frame(x=xx)), col="green")
