@@ -10,17 +10,20 @@
 |2월 24일 | 833| 231 |
 |2월 25일 | 977| 144 |
 |2월 26일 | 1261| 284 |
-|2월 27일 | 1595| 427 |
-|2월 28일 | 2022 | 427 |
-|2월 29일 | 2931 | 909 | 
-|3월 1일 | 3526 | 595 |
-|3월 2일 | 4212 | 686 |
+|2월 27일 | 1766| 505 |
+|2월 28일 | 2337 | 571 |
+|2월 29일 | 3150 | 813 | 
+|3월 1일 | 3736 | 586 |
+|3월 2일 | 4212 | 476 |
+|3월 3일 | 4812 | 600 |
 
 ![선형예측](./c0302.PNG)
 
 # 선형예측  
-    x<-c(19:31)
-    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212)
+  
+    x<-c(19:32)
+    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812)
+   
     plot(x,y)
     lm(x~y)
     #fit first degree polynomial equation:
@@ -31,7 +34,7 @@
     fit$coefficients[[2]]
     fit$residuals #잔차
     summary(f)
-    plot(x, y,pch=19, xlim=c(19,40), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue") #25~30일 예측해 보기
+    plot(x, y,pch=19, xlim=c(19,45), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue") #25~29, 1~3일 예측해 보기
     abline(fit, col='red')
     title("Regresson of Day~Patients")
     axis(2, at=y,labels=y, col.axis="blue", las=2)
@@ -42,12 +45,15 @@
     #fourth degree
     fit4 <- lm(y~poly(x,4,raw=TRUE))
     #generate range of 50 numbers starting from 30 and ending at 160
-    xx <- seq(19, 40, length=27)
+    xx <- seq(19, 45, length=45)
     #plot(x,y,pch=19,ylim=c(0,150))
     lines(xx, predict(fit, data.frame(x=xx)), col="red")
     lines(xx, predict(fit2, data.frame(x=xx)), col="green")
     lines(xx, predict(fit3, data.frame(x=xx)), col="blue")
     lines(xx, predict(fit4, data.frame(x=xx)), col="purple")
+    lx<-c(19:29,1:3)
+    axis(1, at=x,labels=lx, col.axis="blue", las=1)
+    grid(lty=2, lwd=1.5, col='gray')
     
 [데이터 자료]
 
