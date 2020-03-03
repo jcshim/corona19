@@ -74,3 +74,8 @@
 
 
 * [curve fitting](https://davetang.org/muse/2013/05/09/on-curve-fitting/)
+
+## 진단 키트 제조사
+* 씨젠 - 천종윤
+* SD바이오센서
+* 솔젠트
