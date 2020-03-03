@@ -21,9 +21,9 @@
 
 # 선형예측  
   
-    x<-c(19:32)
+  
     y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812)
-   
+    x<-c(19:32)
     plot(x,y)
     lm(x~y)
     #fit first degree polynomial equation:
@@ -34,7 +34,7 @@
     fit$coefficients[[2]]
     fit$residuals #잔차
     summary(f)
-    plot(x, y,pch=19, xlim=c(19,45), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue") #25~29, 1~3일 예측해 보기
+    plot(x, y,pch=19, xlim=c(19,45), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue", yaxt='n', xaxt='n') #25~29, 1~3일 예측해 보기
     abline(fit, col='red')
     title("Regresson of Day~Patients")
     axis(2, at=y,labels=y, col.axis="blue", las=2)
@@ -53,7 +53,9 @@
     lines(xx, predict(fit4, data.frame(x=xx)), col="purple")
     lx<-c(19:29,1:3)
     axis(1, at=x,labels=lx, col.axis="blue", las=1)
-    grid(lty=2, lwd=1.5, col='gray')
+    grid(lty=1, lwd=1, col='gray')
+    axis(side=1, at=c(30:45), labels=c(1:16), tly=2, lwd=2.5)
+    axis(side=2, at=c(6000:10000))
     
 [데이터 자료]
 
