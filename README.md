@@ -21,39 +21,44 @@
 |3월 6일 | 5766 | 438 | 35 | 
 
 # 선형예측  
+
+
     y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812, 5328, 5766)
     x<-c(19:34)
-    plot(x,y)
     lm(x~y)
     #fit first degree polynomial equation:
-    fit<-lm(y ~ x)
-    abline(fit,col='red')
-    fit
-    fit$coefficients[[1]]
-    fit$coefficients[[2]]
-    fit$residuals #잔차
-    summary(f)
-    plot(x, y,pch=19, xlim=c(19,50), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue", yaxt='n', xaxt='n') #25~29, 1~3일 예측해 보기
-    abline(fit, col='red')
+    fit1<-lm(y ~ x)
+#    fit1
+#    fit1$coefficients[[1]]
+#    fit1$coefficients[[2]]
+#    fit1$residuals #잔차
+    summary(fit1)
     title("Regresson of Day~Patients")
-    axis(2, at=y,labels=y, col.axis="blue", las=2)
+    plot(x, y,pch=19, xlim=c(19,50), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue", yaxt='n', xaxt='n') #25~29, 1~3일 예측해 보기
+    #first degree
+#    abline(fit, col='red')
     #second degree
     fit2 <- lm(y~poly(x,2,raw=TRUE))
     #third degree
     fit3 <- lm(y~poly(x,3,raw=TRUE))
     #fourth degree
     fit4 <- lm(y~poly(x,4,raw=TRUE))
-    #generate range of 50 numbers starting from 30 and ending at 160
-    xx <- seq(19, 50, length=50)
-    lines(xx, predict(fit, data.frame(x=xx)), col="red")
+    #generate range of 31 numbers starting from 19 and ending at 50
+    xx <- seq(19, 50, length=31)
+    lines(xx, predict(fit1, data.frame(x=xx)), col="red")
     lines(xx, predict(fit2, data.frame(x=xx)), col="green")
     lines(xx, predict(fit3, data.frame(x=xx)), col="blue")
     lines(xx, predict(fit4, data.frame(x=xx)), col="purple")
-    lx<-c(19:29,1:4)
-    axis(1, at=x,labels=x, col.axis="blue", las=1)
+
     grid(lty=1, lwd=1, col='gray')
-    axis(side=1, at=c(30:50), labels=c(1:16), tly=2, lwd=2.5)
-    axis(side=2, at=c(6000:10000))
+
+    axis(side=1, at=c(19:29), labels=c(19:29),col.axis="blue") #, lwd=2.5)
+    axis(side=1, at=c(30:50), labels=c(1:21))#,col="red") #, lwd=2.5)
+
+    axis(side=2, at=y, labels=y, col.axis="blue", las=2)
+    axis(side=2, at=c(7000:10000), labels=c(7000:10000))#, col="red", col.axis="green)
+
+
 [데이터 자료]
 
 # [Tracking Coronavirus: map](https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/)
