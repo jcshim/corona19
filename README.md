@@ -18,10 +18,11 @@
 |3월 2일 | 4212 | 476 | |
 |3월 3일 | 4812 | 600 | |
 |3월 4일 | 5328 | 516 | 32 |
+|3월 6일 | 5766 | 438 | 35 | 
 
 # 선형예측  
-    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812, 5328)
-    x<-c(19:33)
+    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812, 5328, 5766)
+    x<-c(19:34)
     plot(x,y)
     lm(x~y)
     #fit first degree polynomial equation:
@@ -49,7 +50,7 @@
     lines(xx, predict(fit3, data.frame(x=xx)), col="blue")
     lines(xx, predict(fit4, data.frame(x=xx)), col="purple")
     lx<-c(19:29,1:4)
-    axis(1, at=x,labels=lx, col.axis="blue", las=1)
+    axis(1, at=x,labels=x, col.axis="blue", las=1)
     grid(lty=1, lwd=1, col='gray')
     axis(side=1, at=c(30:50), labels=c(1:16), tly=2, lwd=2.5)
     axis(side=2, at=c(6000:10000))
