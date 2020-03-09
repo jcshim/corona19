@@ -1,5 +1,5 @@
 # Korean Corona19
-![선형예측](./c0306.PNG)
+![선형예측](./c0309.PNG)
 
 |날자|인원|증감|사망자|결리해제|최종확진|
 |---|---|---|---|---|---|
@@ -22,13 +22,12 @@
 |3월 6일 | 6284 | 518 | 42 | 108 | 
 |3월 7일 | 6767 | 483 | 44 | 118 |
 |3월 8일 | 7134 | 367 | 50 | 130 |
-|3월 9일 | 7313 |  |  |  |
+|3월 9일 | 7478 | 248 | 53 | 166 |
 
 # 선형예측  
 
-
-    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812, 5328, 5766, 6284, 6767, 7134)
-    x<-c(19:37) # 8->37
+    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812, 5328-41, 5766-88, 6284-108, 6767-118, 7134-130,7478-166)
+    x<-c(19:38) # 9->38
     lm(x~y)
     #fit first degree polynomial equation:
     fit1<-lm(y ~ x)
@@ -38,7 +37,7 @@
 #    fit1$residuals #잔차
     summary(fit1)
     title("Regresson of Day~Patients")
-    plot(x, y,pch=19, xlim=c(19,50), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue", yaxt='n', xaxt='n') #25~29, 1~3일 예측해 보기
+    plot(x, y,pch=19, xlim=c(19,60), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue", yaxt='n', xaxt='n') #25~29, 1~3일 예측해 보기
     #first degree
 #    abline(fit, col='red')
     #second degree
@@ -48,7 +47,7 @@
     #fourth degree
     fit4 <- lm(y~poly(x,4,raw=TRUE))
     #generate range of 31 numbers starting from 19 and ending at 50
-    xx <- seq(19, 50, length=31)
+    xx <- seq(19, 60, length=41)
     lines(xx, predict(fit1, data.frame(x=xx)), col="red")
     lines(xx, predict(fit2, data.frame(x=xx)), col="green")
     lines(xx, predict(fit3, data.frame(x=xx)), col="blue")
@@ -57,10 +56,10 @@
     grid(lty=1, lwd=1, col='gray')
 
     axis(side=1, at=c(19:29), labels=c(19:29),col.axis="blue") #, lwd=2.5)
-    axis(side=1, at=c(30:50), labels=c(1:21))#,col="red") #, lwd=2.5)
+    axis(side=1, at=c(30:60), labels=c(1:31))#,col="red") #, lwd=2.5)
 
     axis(side=2, at=y, labels=y, col.axis="blue", las=2)
-    axis(side=2, at=c(7000:10000), labels=c(7000:10000))#, col="red", col.axis="green)
+    axis(side=2, at=c(8000:10000), labels=c(8000:10000))#, col="red", col.axis="green)
 
 
 [데이터 자료]
