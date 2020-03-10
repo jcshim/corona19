@@ -1,5 +1,5 @@
 # Korean Corona19
-![선형예측](./c0309.PNG)
+![선형예측](./c0310.PNG)
 
 |날자|인원|증감|사망자|결리해제|최종확진|
 |---|---|---|---|---|---|
@@ -23,23 +23,24 @@
 |3월 7일 | 6767 | 483 | 44 | 118 |
 |3월 8일 | 7134 | 367 | 50 | 130 |
 |3월 9일 | 7478 | 248 | 53 | 166 |
+|3월 10일 |7513 | 248 | 54 | 247 |
 
 # 선형예측  
 
-    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812, 5328-41, 5766-88, 6284-108, 6767-118, 7134-130,7478-166)
-    x<-c(19:38) # 9->38
+    y<-c(51,104,204,433,602,833,977, 1261, 1595, 2022, 2931,3526,4212, 4812, 5328-41, 5766-88, 6284-108, 6767-118, 7134-130,7478-166,7513-247)
+    x<-c(19:39) # 10->39
     lm(x~y)
     #fit first degree polynomial equation:
     fit1<-lm(y ~ x)
-#    fit1
-#    fit1$coefficients[[1]]
-#    fit1$coefficients[[2]]
-#    fit1$residuals #잔차
+    #    fit1
+    #    fit1$coefficients[[1]]
+    #    fit1$coefficients[[2]]
+    #    fit1$residuals #잔차
     summary(fit1)
     title("Regresson of Day~Patients")
     plot(x, y,pch=19, xlim=c(19,60), ylim=c(0,10000), xlab = "date", ylab = "Pacients#", col="blue", yaxt='n', xaxt='n') #25~29, 1~3일 예측해 보기
     #first degree
-#    abline(fit, col='red')
+    #    abline(fit, col='red')
     #second degree
     fit2 <- lm(y~poly(x,2,raw=TRUE))
     #third degree
